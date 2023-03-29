@@ -39,9 +39,9 @@ python step3.py input.LAZ output.LAZ cell_size max_distance max_angle [thinning_
 
 - input.LAZ: The input point cloud. This must be in the same folder as the program. Replace "input" with the name of the .LAZ file, for example step2.LAZ  
 - output.LAZ: The output point cloud. This will appear in the same folder as the program. Replace "output" with the name of the .LAZ file, for example step3.LAZ  
-- cell\_size: The program first constructs a rudimentary TIN consisting of the lowest points in each of a set of smaller cells that make up the dataset. This parameter specifies the size of those cells, in meters. Example: 30  
-- max\_distance: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the distance d_max from the TIN which the point must fall within in order to be added to the TIN. Example: 0.5  
-- max\_angle: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the angle alpha_max between the relevant triangle in the TIN and the point, seen from each of the triangle's vertices. All angles must fall within this value in order to be added to the TIN. Example: 10    
+- cell\_size: The program first constructs a rudimentary TIN consisting of the lowest points in each of a set of smaller cells that make up the dataset. This parameter specifies the size of those cells, in meters. Example: 35  
+- max\_distance: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the distance d_max in meters from the TIN which the point must fall within in order to be added to the TIN. Example: 0.5  
+- max\_angle: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the angle alpha_max in degrees between the relevant triangle in the TIN and the point, seen from each of the triangle's vertices. All angles must fall within this value in order to be added to the TIN. Example: 10    
 - *thinning\_ratio: Optinal. If thinning of the input is desired, the proportion of points in the input file to keep for TIN refinement. By default it is 1, i.e. there is no thinning, all input points are processed. Example: 0.2*  
 - *points\_per\_iter: Optional. The number of points processed per iteration of the chunk_iterator. Must be an int. By default set to 10^6. Increase this if you are feeling adventuruous*  
 
@@ -63,7 +63,7 @@ python step4.py input.LAZ output.LAZ threshold [points_per_iter]
 
 - input.LAZ: The input point cloud. This must be in the same folder as the program. Replace "input" with the name of the .LAZ file, for example step3.LAZ  
 - output.LAZ: The output point cloud. This will appear in the same folder as the program. Replace "output" with the name of the .LAZ file, for example step4.LAZ  
-- threshold: The vertical distance threshold used for the decimation procedure. Example: 1  
+- threshold: The vertical distance threshold used for the decimation procedure, in meters. Example: 1  
 - *points\_per\_iter: Optional. The number of points processed per iteration of the chunk_iterator. Must be an int. By default set to 10^6. Increase this if you are feeling adventuruous*  
 
 ## step5.py
@@ -82,7 +82,7 @@ python step5.py input.LAZ output.tif pixel_size
 
 - input.LAZ: The input point cloud. This must be in the same folder as the program. Replace "input" with the name of the .LAZ file, for example step4.LAZ  
 - output.tif: The output raster. This will appear in the same folder as the program. Replace "output" with the name of the .tif file, for example step5.tif  
-- pixel\_size: The size of each pixel in the output raster. Example: 0.5  
+- pixel\_size: The size of each pixel in the output raster, in meters. Example: 0.5  
 
 ## step6.py
 
@@ -101,7 +101,7 @@ python step6.py input.LAZ output.tif pixel_size
 
 - input.LAZ: The input point cloud. This must be in the same folder as the program. Replace "input" with the name of the .LAZ file, for example step4.LAZ  
 - output.tif: The output raster. This will appear in the same folder as the program. Replace "output" with the name of the .tif file, for example step6.tif  
-- pixel\_size: The size of each pixel in the output raster. Example: 0.5  
+- pixel\_size: The size of each pixel in the output raster, in meters. Example: 0.5  
 
 ## step7.py
 
