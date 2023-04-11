@@ -42,7 +42,6 @@ python step3.py input.LAZ output.LAZ cell_size max_distance max_angle [thinning_
 - cell\_size: The program first constructs a rudimentary TIN consisting of the lowest points in each of a set of smaller cells that make up the dataset. This parameter specifies the size of those cells, in meters. Example: 35  
 - max\_distance: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the distance d_max in meters from the TIN which the point must fall within in order to be added to the TIN. Example: 0.5  
 - max\_angle: For each iteration the greedy algorithm, a calculation is performed for each point in the input point cloud that is not already in the TIN. This parameter determines the angle alpha_max in degrees between the relevant triangle in the TIN and the point, seen from each of the triangle's vertices. All angles must fall within this value in order to be added to the TIN. Example: 10    
-- number_of_buckets: To speed up the algorithm, the input data is split into buckets based on height data, which are then processed using TIN refinement. This parameter determines the number of such buckets. Must be an int. Example: 10
 - *points\_per\_iter: Optional. The number of points processed per iteration of the chunk_iterator. Must be an int. By default set to 10^6. Increase this if you are feeling adventuruous*  
 
 **NB: This program is slow!** Depending on the parameters given, it could take several hours to finish.  
